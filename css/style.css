@@ -1,0 +1,48 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* Basic reset to make every browser render in the same way */
+/* Universal selector will select each element on the page an apply these declarations */
+/* using this allows you to start clean without any added margin or padding from the web browser */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16;
+  /* Means that the line height is 1.7 times bigger than the pre defined line height */
+  line-height: 1.7;
+  color: #777;
+
+  /* to put a nice white boarder around the entire page, add padding to the body */
+  padding: 30px;
+}
+
+.header {
+  /* 95% of the viewport height */
+  height: 95vh;
+
+  /* background image */
+  /* always specify background gradients using background-image */
+  background-image: linear-gradient(to right bottom, #7ed56fcc, #28b485cc),
+    url(../img/hero.jpg);
+
+  /* cover trys to fit the element in the box no matter the width of the view port of element */
+  background-size: cover;
+
+  /* ensures that the top of the image always stays at the top of the container, bottom or center */
+  background-position: top;
+
+  /* create the wedge look at the bottom of the header: x and y (epsilon) */
+  clip-path: polygon( 0 0, 100% 0, 100% 75vh, 0 100%);
+}
