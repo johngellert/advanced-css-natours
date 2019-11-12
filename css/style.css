@@ -69,6 +69,10 @@ body {
   left: 50%;
   /* these 50% are no longer in relation to the parent element but rather the element itself */
   transform: translate(-50%, -50%);
+
+  /* because the button in the header is text and treated as inline, it can be 
+  centered by adding text align center in this div */
+  text-align: center;
 }
 
 .heading-primary {
@@ -77,6 +81,9 @@ body {
 
   /* fixes the issue where the animation text shacks and moves up after animation */
   backface-visibility: hidden;
+
+  /* to add some white space between the heading and the button add some margin */
+  margin-bottom: 60px;
 }
 
 /* span elements by default are inline elements like text */
@@ -136,4 +143,104 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* because the button is a anchor we can use the pseudo class link */
+/* pseudo class is a special state of the selector. Style elements under special condition */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+
+  /* because the button is text, it is displayed inline */
+  /* to add some padding to the element, display inline-block */
+  display: inline-block;
+  border-radius: 100px;
+
+  /* this will add animation without specifying using @keyframes
+  all we have to use is transition and specify the properties we want to animate
+  and in this case we are selecting all properties and .2 seconds */
+  transition: all 0.2s;
+
+  /* need to set this to relative so that the absolute positioning of btn::after
+  can use this as a reference point. */
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+
+  /* first value is shadow in the x direction, we want 0 */
+  /* second value is shadow in the y direction,  */
+  /* third value is the blur, more blur makes it look further away from page */
+  /* fourth value is the color */
+  box-shadow: 0 10px 20px rgb(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+
+  /* decrease the shadow and blur to make it look like the button is closer to
+    the page and getting pushed down */
+  box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* after pseudo element is treated like a child of the button so if we specify height 
+100%, it means 100% of the button */
+.btn::after {
+  /* always have to define content */
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+
+  /* based of relative position of button above */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* want to place this behind so add a z index of -1 */
+  z-index: -1;
+
+  transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  /* use scale to make bigger */
+  /* transform: scale(1.5); */
+  transform: scaleX(1.4) scaleY(1.6);
+
+  /* this is the trick to fading something out */
+  opacity: 0;
+}
+
+.btn-animated {
+  /* last value is animation delay */
+  animation: moveInBottom 0.5s ease-out 0.75s;
+
+  /* apply the animation style of the 0% before the animation starts */
+  animation-fill-mode: backwards;
 }
