@@ -10,22 +10,42 @@ Dark green: #28b485
 /* Basic reset to make every browser render in the same way */
 /* Universal selector will select each element on the page an apply these declarations */
 /* using this allows you to start clean without any added margin or padding from the web browser */
-* {
+*,
+*::after,
+*::before {
   margin: 0px;
   padding: 0px;
-  box-sizing: border-box;
+
+  /* when possible, we should inherit so move box-sizing boarder-box to body */
+  box-sizing: inherit;
+}
+
+/* the global font size is set in the html element */
+/* if we convert all our font size to rem, it will be based of the root font */
+/* this is very helpful for making response sites, for example, when a a break point for mobile
+need a way to decrease all the sizes with one font setting  */
+/* why set the font-size to 10 instead of default 16px. So that we know that one rem is exactly 10px */
+html {
+    /* font-size: 10px; */
+    /* if we keep 10px here, it does not allow the user to make the default browser font size bigger
+    so we set the font size to 62.5% of 16px, which is the default browser size, and end up with 10px here.
+    now if the user changes the font size in the browser, the page will still be responsive */
+    font-size: 62.5% 
 }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16;
+  /* font-size: 16; */
   /* Means that the line height is 1.7 times bigger than the pre defined line height */
   line-height: 1.7;
   color: #777;
 
   /* to put a nice white boarder around the entire page, add padding to the body */
-  padding: 30px;
+  /* padding: 30px; */
+  padding: 3rem;
+
+  box-sizing: border-box;
 }
 
 .header {
@@ -54,13 +74,16 @@ body {
 /* However, the starting point is based off the parents location, need to make parent position relative */
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  /* top: 40px;
+  left: 40px; */
+  top: 4rem;
+  left: 4rem;
 }
 
 /* to scale the picture, don't set the width, the browser with scale for you */
 .logo {
-  height: 35px;
+  /* height: 35px; */
+  height: 3.5rem
 }
 
 .text-box {
@@ -83,7 +106,8 @@ body {
   backface-visibility: hidden;
 
   /* to add some white space between the heading and the button add some margin */
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
+    margin-bottom: 6rem;
 }
 
 /* span elements by default are inline elements like text */
@@ -91,9 +115,11 @@ body {
 /* block elements span the entire width and use a line break before and after */
 .heading-primary-main {
   display: block;
-  font-size: 60px;
+  /* font-size: 60px; */
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  /* letter-spacing: 35px; */
+  letter-spacing: 3.5rem;
 
   animation-name: moveInLeft;
   animation-duration: 1s;
@@ -106,9 +132,11 @@ body {
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  /* font-size: 20px; */
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  /* letter-spacing: 17.4px; */
+  letter-spacing: 1.75rem;
 
   animation: moveInRight 1s ease-out;
 }
@@ -116,11 +144,13 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    /* transform: translateX(-100px); */
+    transform: translateX(-10rem)
   }
 
   80% {
-    transform: translateX(10px);
+    /* transform: translateX(10px); */
+    transform: translateX(1rem);
   }
 
   100% {
@@ -132,11 +162,13 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    /* transform: translateX(100px); */
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    /* transform: translateX(-10px); */
+    transform: translateX(-1rem);
   }
 
   100% {
@@ -148,7 +180,8 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    /* transform: translateY(30px); */
+    transform: translateY(3rem);
   }
 
   100% {
@@ -163,12 +196,12 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
 
   /* because the button is text, it is displayed inline */
   /* to add some padding to the element, display inline-block */
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
 
   /* this will add animation without specifying using @keyframes
   all we have to use is transition and specify the properties we want to animate
@@ -178,6 +211,7 @@ body {
   /* need to set this to relative so that the absolute positioning of btn::after
   can use this as a reference point. */
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
@@ -187,7 +221,7 @@ body {
   /* second value is shadow in the y direction,  */
   /* third value is the blur, more blur makes it look further away from page */
   /* fourth value is the color */
-  box-shadow: 0 10px 20px rgb(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgb(0, 0, 0, 0.2);
 }
 
 .btn:active {
@@ -195,7 +229,7 @@ body {
 
   /* decrease the shadow and blur to make it look like the button is closer to
     the page and getting pushed down */
-  box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2);
+  box-shadow: 0 .5rem 1rem rgb(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -211,7 +245,7 @@ body {
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
 
   /* based of relative position of button above */
   position: absolute;
