@@ -72,7 +72,7 @@ body {
 
 /* Using absolute allows you to decide exactly where you want the div */
 /* However, the starting point is based off the parents location, need to make parent position relative */
-.logo-box {
+.header__logo-box {
   position: absolute;
   /* top: 40px;
   left: 40px; */
@@ -81,12 +81,12 @@ body {
 }
 
 /* to scale the picture, don't set the width, the browser with scale for you */
-.logo {
+.header__logo {
   /* height: 35px; */
   height: 3.5rem
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -113,7 +113,7 @@ body {
 /* span elements by default are inline elements like text */
 /* to get each part of the heading on separate lines we can display block */
 /* block elements span the entire width and use a line break before and after */
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   /* font-size: 60px; */
   font-size: 6rem;
@@ -130,7 +130,7 @@ body {
   /* animation-delay: 3s; */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   /* font-size: 20px; */
   font-size: 2rem;
@@ -232,7 +232,7 @@ body {
   box-shadow: 0 .5rem 1rem rgb(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -258,7 +258,7 @@ body {
   transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -271,7 +271,7 @@ body {
   opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
   /* last value is animation delay */
   animation: moveInBottom 0.5s ease-out 0.75s;
 
