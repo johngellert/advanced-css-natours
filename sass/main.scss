@@ -3,6 +3,10 @@ $color-primary: #55c57a;
 $color-primary-light:#7ed56f;
 $color-primary-dark: #28b485;
 
+$color-grey-dark: #777;
+$color-white: #fff;
+
+
 /* Basic reset to make every browser render in the same way */
 /* Universal selector will select each element on the page an apply these declarations */
 /* using this allows you to start clean without any added margin or padding from the web browser */
@@ -35,7 +39,7 @@ body {
   /* font-size: 16; */
   /* Means that the line height is 1.7 times bigger than the pre defined line height */
   line-height: 1.7;
-  color: #777;
+  color: $color-grey-dark;
 
   /* to put a nice white boarder around the entire page, add padding to the body */
   /* padding: 30px; */
@@ -50,7 +54,7 @@ body {
 
   /* background image */
   /* always specify background gradients using background-image */
-  background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
     url(../img/hero.jpg);
 
   /* cover trys to fit the element in the box no matter the width of the view port of element */
@@ -95,7 +99,7 @@ body {
 }
 
 .heading-primary {
-  color: #fff;
+  color: $color-white;
   text-transform: uppercase;
 
   /* fixes the issue where the animation text shacks and moves up after animation */
@@ -229,8 +233,8 @@ body {
 }
 
 .btn--white {
-  background-color: #fff;
-  color: #777;
+  background-color: $color-white;
+  color: $color-grey-dark;
 }
 
 /* after pseudo element is treated like a child of the button so if we specify height 
@@ -255,7 +259,7 @@ body {
 }
 
 .btn--white::after {
-  background-color: #fff;
+  background-color: $color-white;
 }
 
 .btn:hover::after {
