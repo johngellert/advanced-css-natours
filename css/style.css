@@ -46,31 +46,28 @@ body {
   /* This makes it so the child div has a starting origin for the absolute positioning */
   position: relative;
   /* create the wedge look at the bottom of the header: x and y (epsilon) */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-
-/* Using absolute allows you to decide exactly where you want the div */
-/* However, the starting point is based off the parents location, need to make parent position relative */
-.header__logo-box {
-  position: absolute;
-  /* top: 40px;
-  left: 40px; */
-  top: 4rem;
-  left: 4rem; }
-
-/* to scale the picture, don't set the width, the browser with scale for you */
-.header__logo {
-  /* height: 35px; */
-  height: 3.5rem; }
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  /* these 50% are no longer in relation to the parent element but rather the element itself */
-  transform: translate(-50%, -50%);
-  /* because the button in the header is text and treated as inline, it can be 
-  centered by adding text align center in this div */
-  text-align: center; }
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* Using absolute allows you to decide exactly where you want the div */
+  /* However, the starting point is based off the parents location, need to make parent position relative */
+  /* to scale the picture, don't set the width, the browser with scale for you */ }
+  .header__logo-box {
+    position: absolute;
+    /* top: 40px;
+      left: 40px; */
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    /* height: 35px; */
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* these 50% are no longer in relation to the parent element but rather the element itself */
+    transform: translate(-50%, -50%);
+    /* because the button in the header is text and treated as inline, it can be 
+    centered by adding text align center in this div */
+    text-align: center; }
 
 .heading-primary {
   color: #fff;
@@ -79,32 +76,30 @@ body {
   backface-visibility: hidden;
   /* to add some white space between the heading and the button add some margin */
   /* margin-bottom: 60px; */
-  margin-bottom: 6rem; }
-
-/* span elements by default are inline elements like text */
-/* to get each part of the heading on separate lines we can display block */
-/* block elements span the entire width and use a line break before and after */
-.heading-primary--main {
-  display: block;
-  /* font-size: 60px; */
-  font-size: 6rem;
-  font-weight: 400;
-  /* letter-spacing: 35px; */
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  /* animation-iteration-count: 3; */
-  /* animation-delay: 3s; */ }
-
-.heading-primary--sub {
-  display: block;
-  /* font-size: 20px; */
-  font-size: 2rem;
-  font-weight: 700;
-  /* letter-spacing: 17.4px; */
-  letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out; }
+  margin-bottom: 6rem;
+  /* span elements by default are inline elements like text */
+  /* to get each part of the heading on separate lines we can display block */
+  /* block elements span the entire width and use a line break before and after */ }
+  .heading-primary--main {
+    display: block;
+    /* font-size: 60px; */
+    font-size: 6rem;
+    font-weight: 400;
+    /* letter-spacing: 35px; */
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 3s; */ }
+  .heading-primary--sub {
+    display: block;
+    /* font-size: 20px; */
+    font-size: 2rem;
+    font-weight: 700;
+    /* letter-spacing: 17.4px; */
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; }
 
 @keyframes moveInLeft {
   0% {
@@ -139,73 +134,66 @@ body {
     opacity: 1;
     transform: translate(0); } }
 
-/* because the button is a anchor we can use the pseudo class link */
-/* pseudo class is a special state of the selector. Style elements under special condition */
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  /* because the button is text, it is displayed inline */
-  /* to add some padding to the element, display inline-block */
-  display: inline-block;
-  border-radius: 10rem;
-  /* this will add animation without specifying using @keyframes
+.btn {
+  /* because the button is a anchor we can use the pseudo class link */
+  /* pseudo class is a special state of the selector. Style elements under special condition */
+  /* after pseudo element is treated like a child of the button so if we specify height 
+100%, it means 100% of the button */ }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    /* because the button is text, it is displayed inline */
+    /* to add some padding to the element, display inline-block */
+    display: inline-block;
+    border-radius: 10rem;
+    /* this will add animation without specifying using @keyframes
   all we have to use is transition and specify the properties we want to animate
   and in this case we are selecting all properties and .2 seconds */
-  transition: all 0.2s;
-  /* need to set this to relative so that the absolute positioning of btn::after
+    transition: all 0.2s;
+    /* need to set this to relative so that the absolute positioning of btn::after
   can use this as a reference point. */
-  position: relative;
-  font-size: 1.6rem; }
-
-.btn:hover {
-  transform: translateY(-3px);
-  /* first value is shadow in the x direction, we want 0 */
-  /* second value is shadow in the y direction,  */
-  /* third value is the blur, more blur makes it look further away from page */
-  /* fourth value is the color */
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-
-.btn:active {
-  transform: translateY(-1px);
-  /* decrease the shadow and blur to make it look like the button is closer to
+    position: relative;
+    font-size: 1.6rem; }
+  .btn:hover {
+    transform: translateY(-3px);
+    /* first value is shadow in the x direction, we want 0 */
+    /* second value is shadow in the y direction,  */
+    /* third value is the blur, more blur makes it look further away from page */
+    /* fourth value is the color */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .btn:hover::after {
+      /* use scale to make bigger */
+      /* transform: scale(1.5); */
+      transform: scaleX(1.4) scaleY(1.6);
+      /* this is the trick to fading something out */
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-1px);
+    /* decrease the shadow and blur to make it look like the button is closer to
     the page and getting pushed down */
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
-
-.btn--white {
-  background-color: #fff;
-  color: #777; }
-
-/* after pseudo element is treated like a child of the button so if we specify height 
-100%, it means 100% of the button */
-.btn::after {
-  /* always have to define content */
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  /* based of relative position of button above */
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* want to place this behind so add a z index of -1 */
-  z-index: -1;
-  transition: all 0.4s; }
-
-.btn--white::after {
-  background-color: #fff; }
-
-.btn:hover::after {
-  /* use scale to make bigger */
-  /* transform: scale(1.5); */
-  transform: scaleX(1.4) scaleY(1.6);
-  /* this is the trick to fading something out */
-  opacity: 0; }
-
-.btn--animated {
-  /* last value is animation delay */
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  /* apply the animation style of the 0% before the animation starts */
-  animation-fill-mode: backwards; }
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
+    /* always have to define content */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* based of relative position of button above */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* want to place this behind so add a z index of -1 */
+    z-index: -1;
+    transition: all 0.4s; }
+  .btn--animated {
+    /* last value is animation delay */
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* apply the animation style of the 0% before the animation starts */
+    animation-fill-mode: backwards; }
