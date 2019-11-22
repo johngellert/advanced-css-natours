@@ -1,0 +1,6 @@
+.row {
+    // it is common to use 1140px however we want to use rems so divide by 10 to get 114rem
+    max-width: 114rem; // use max-width instead of width. if enough available e space it will be the size specific. if smaller, it will fill 100% of the space
+    background-color: #eee;
+    margin: 0 auto;
+}

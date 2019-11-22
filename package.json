@@ -16,7 +16,9 @@
     "url": "https://github.com/johngellert/advanced-css-natours/issues"
   },
   "homepage": "https://github.com/johngellert/advanced-css-natours#readme",
-  "dependencies": {},
+  "dependencies": {
+    "live-server": "^1.2.1"
+  },
   "devDependencies": {
     "node-sass": "^4.13.0"
   }
