@@ -8,4 +8,25 @@
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
   }
+
+  @include clearfix;
+
+  .col-1-of-2 {
+    // can mix units here in sass
+    // to use the calc function in css, if we want to use a sass variable,
+    // it need to have a # and wrapped by a curly braces.
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+    background-color: orangered;
+
+    // since we are using a float layout, we always float left
+    // when using float, the height clears and goes to 0px
+    // to fix this issue, need to use clearfix
+    // see mixin clearfix to resolve this issue.
+    float: left;
+
+    // need to remove the gutter form the far right column
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
 }
