@@ -1,0 +1,39 @@
+.composition {
+  position: relative;
+
+  &__photo {
+    width: 55%; // always have to define the width of images in percentages
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    border-radius: 2px;
+    position: absolute; // the reference, (0,0) coordinate will be at the top left corner of the composition element (the patent)
+    z-index: 10;
+    transition: all 0.2s;
+    outline-offset: 2rem;
+
+    &--p1 {
+      left: 0;
+      top: -2rem; // will move it upwards
+    }
+
+    &--p2 {
+      right: 0; // this will start at the right side, moving 0px from th right
+      top: 2rem; // will move it down
+    }
+
+    &--p3 {
+      left: 20%; // 20% from the left
+      top: 10rem; // will move it down
+    }
+
+    &:hover {
+      outline: 1.5rem solid $color-primary; // acts similar to a border but can use the outline offset property to add a spacing
+      transform: scale(1.05) translateY(-.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+      z-index: 20;
+    }
+  }
+
+  &:hover &__photo:not(:hover) {
+      transform: scale(.95); // as soon as any composition element is entered, the photo that is not hovered scales down
+  }
+}
